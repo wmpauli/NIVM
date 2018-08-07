@@ -56,8 +56,7 @@ The extension also comes w/ Docker support, making it easy to install [fmriprep]
 
 ## Workflow
 
-The very first step is to provision a Data Science Virtual Machine (DSVM) with this extension.
-
+The very first step is to provision and deploy a Data Science Virtual Machine (DSVM) with this extension:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FDataScienceVM%2Fmaster%2FExtensions%2FNIVM%2Fazuredeploy.json" target="_blank">
  -    <img src="http://azuredeploy.net/deploybutton.png"/>
  -</a>
