@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This little bash script overloads the existing apt-get command, to enable it to wait for other apt-get/dpkg processes to finish, rather than existing because resources are locked by those other processes. 
+
 i=0
 tput sc
 while fuser /var/lib/dpkg/lock >/dev/null 2>&1 ; do
