@@ -23,7 +23,7 @@ sleep_duration=5
 
 # add neurodebian repository
 cmd="wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | tee /etc/apt/sources.list.d/neurodebian.sources.list"
-cmd
+$cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -37,7 +37,7 @@ done
 
 # add certificate keys
 cmd="apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9"
-cmd
+$cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -51,7 +51,7 @@ done
 
 # update package cache
 cmd="apt-get update"
-cmd
+$cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -65,7 +65,7 @@ done
 
 # install packages
 cmd="apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap"
-cmd
+$cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -79,7 +79,7 @@ done
 
 # remove obsolete packages
 cmd="apt-get -y autoremove"
-cmd
+$cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
