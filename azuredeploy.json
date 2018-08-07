@@ -29,6 +29,7 @@
                 "Standard_D6s_v3",
                 "Standard_D16s_v3",
                 "Standard_D32s_v3",
+                "Standard D64s v3",
             ],
             "metadata": {
                 "description": "Size for the Virtual Machine."
