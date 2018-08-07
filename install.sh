@@ -4,18 +4,8 @@ wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | sudo tee /etc/apt/sou
 # add certificate keys
 sudo apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
 
-# create fake matlab executable to allow the installation of matlab
-sudo echo "echo \"Matlab is not installed, please install manually, in '/usr/local/matlab/'.\"" > /tmp/matlab
-chmod a+x /tmp/matlab
-sudo mkdir -p /usr/local/matlab/bin
-sudo mv /tmp/matlab !$
-sudo ln -s /usr/local/matlab/bin/matlab /usr/local/bin/
-
 # update package cache
 sudo apt-get update
-
-# install tool which enables preconfiguration of packages before installation, so that matlab-spm8 can be install non-interactively
-sudo apt install debconf-utils
 
 # install packages
 # the following packages appear to be unavailable on neurodebian.org (for ubuntu 16.04): caret, *openmeeg*, pydicom
