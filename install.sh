@@ -34,4 +34,4 @@ sudo apt-get -y autoremove
 # configure FSL
 cd /tmp/
 wget https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
-sudo mv fsl_configure /etc/profile.d/
+sudo mv fsl_configure.sh /etc/profile.d/
