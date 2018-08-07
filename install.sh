@@ -40,5 +40,4 @@ sudo mv fsl_configure.sh /etc/profile.d/
 echo "source /etc/profile.d/fsl_configure.sh" | sudo tee --append /etc/bash.bashrc
 
 # install servers for remote access
-sudo apt-get install -y xrdp
-
+sudo apt-get install -y x2goserver
