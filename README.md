@@ -15,9 +15,12 @@ Moving to the cloud may have several benefits and satisify several needs:
 
 ### Scalability
 
-- Cloud provides on-demand scalable access to resources for storing and operating on data, can accommodate bursts of activity (around deadlines). * Neuroimaging jobs are highly parallelizable. For example, each participants' data can be processed independently. Parameter and model selection can also be performed in parallel.
+- Cloud provides on-demand scalable access to resources for storing and operating on data, can accommodate bursts of activity (around deadlines). 
+- Neuroimaging jobs are highly parallelizable. For example, each participants' data can be processed independently. Parameter and model selection can also be performed in parallel.
 - Many NI packages support GPUs, but GPUs aren’t required in every step of the analysis process. Ability to switch between DSVM and DLVM would be beneficial.
 - Advanced data analysis techniques have led to impressive improvements of analysis results but are also computationally intensive. They often also require the storage of intermediate results, which can take a lot of storage space for a limited amount of time.
+
+Using the cloud allows you to quickly resize your virtual machine, from only sporting a dual-core CPU to several GPUs.  It is even possible to deploy a farm of VMs for rapid speed-up.
 
 ### Recent developments that favor cloud computing
 
@@ -60,8 +63,8 @@ The very first step is to provision and deploy a Data Science Virtual Machine (D
  
 At the very core, using this extension requires the following steps:
 1. Look up the IP address of your virtual machine after booting it up.
-2. Copy your data using e.g. rsync, scp.
-3. Use your preferred remote desktop client to connect to your virtual machine (via VNC).
+2. Upload your data using e.g. rsync, scp. It is recommended to store the data in `/data`. Note that it is easy to add additional hard-drives to your VM.
+3. Use your preferred remote desktop client to connect to your virtual machine (via VNC). You can also use ssh for a command line interface.
 
 # Existing Cloud solutions 
 
