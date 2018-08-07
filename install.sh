@@ -28,9 +28,9 @@ while [ $? -ne 0 ]; do
     break
   fi
   ((i=i+1))
-  echo "Sleeping for " $sleep_duration
+  echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
-  echo "retrying: $cmd"
+  echo "Retrying: $cmd"
   $cmd
 done
 
@@ -41,9 +41,9 @@ while [ $? -ne 0 ]; do
     break
   fi
   ((i=i+1))
-  echo "Sleeping for " $sleep_duration
+  echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
-  echo "retrying: $cmd"
+  echo "Retrying: $cmd"
   $cmd
 done
 
@@ -54,9 +54,9 @@ while [ $? -ne 0 ]; do
     break
   fi
   ((i=i+1))
-  echo "Sleeping for " $sleep_duration
+  echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
-  echo "retrying: $cmd"
+  echo "Retrying: $cmd"
   $cmd
 done
 
@@ -67,9 +67,9 @@ while [ $? -ne 0 ]; do
     break
   fi
   ((i=i+1))
-  echo "Sleeping for " $sleep_duration
+  echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
-  echo "retrying: $cmd"
+  echo "Retrying: $cmd"
   $cmd
 done
 
@@ -80,9 +80,9 @@ while [ $? -ne 0 ]; do
     break
   fi
   ((i=i+1))
-  echo "Sleeping for " $sleep_duration
+  echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
-  echo "retrying: $cmd"
+  echo "Retrying: $cmd"
   $cmd
 done
 
