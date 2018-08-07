@@ -70,4 +70,4 @@ At the very core, using this extension requires the following steps:
 
 # Contribute
 
-Please feel free to fork this repository if you want to have other/additional software installed. Any augmentation of the documentation for this extension is of course also more than welcome.
+Please feel free to fork this repository, if you want to have other/additional software installed. Any augmentation of the documentation for this extension is of course also more than welcome. Please create a pull request if you think it worthwhile merging your fork with the main branch.
