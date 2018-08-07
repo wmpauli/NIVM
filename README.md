@@ -46,11 +46,13 @@ This DSVM extension for neuroimaging strongly relies on packages available throu
 
 The extension also comes w/ Docker support, making it easy to [install fmriprep](https://fmriprep.readthedocs.io/en/latest/installation.html). 
 
+**Note:** Matlab and SPM are currently not pre-installed with this extension.  Please let us know of a good way of doing this without having a matlab license.
 
 # Getting started: 
 
-- Go to Microsoft Azure [portal](http://portal.azure.com), to create a free account. This will let you try this extension for free. 
-- It may be benefitial to do briefly browse the [help] pages for Microsoft Azure (https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Go to Microsoft Azure [portal](http://portal.azure.com), to create a free account. This will let you try this extension for free. 
+
+It may be benefitial to do briefly browse the [help] pages for Microsoft Azure (https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## Workflow
 
