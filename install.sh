@@ -15,9 +15,6 @@ sudo apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D3
 # update package cache
 sudo apt-get update
 
-# update pip
-pip install --upgrade pip
-
 # install packages
 # the following packages appear to be unavailable on neurodebian.org (for ubuntu 16.04): caret, *openmeeg*, pydicom
 # we are also not installing spm, because that would require prior installation of matlab by the user
@@ -29,10 +26,3 @@ sudo apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsle
 
 # remove obsolete packages
 sudo apt-get -y autoremove
-
-
-# install fmriprep-docker
-pip install --user --upgrade fmriprep-docker
-
-
-
