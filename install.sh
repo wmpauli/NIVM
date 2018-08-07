@@ -36,7 +36,7 @@ max=50
 sleep_duration=5
 
 # add neurodebian repository
-cmd="wget -O /etc/apt/sources.list.d/neurodebian.sources.list http://neuro.debian.net/lists/xenial.us-nh.full"
+cmd="wget -O /etc/apt/sources.dlist.d/neurodebian.sources.list http://neuro.debian.net/lists/xenial.us-nh.full"
 eval_cmd $cmd
 
 # add certificate keys
