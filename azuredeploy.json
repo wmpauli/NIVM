@@ -206,7 +206,7 @@
         "resources": [
          {
           "type": "extensions",
-          "name": "BigDL",
+          "name": "Neuroimaging",
           "apiVersion": "2015-06-15",
           "location": "[variables('location')]",
           "dependsOn": [
