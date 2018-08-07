@@ -73,6 +73,10 @@ At the very core, using this extension requires the following steps:
 
 - https://www.frontiersin.org/articles/10.3389/fninf.2017.00063/full
 
+# Support
+
+Please feel free to email any of the contributors for help.
+
 # Contribute
 
 Please feel free to fork this repository, if you want to have other/additional software installed. Any augmentation of the documentation for this extension is of course also more than welcome. Please create a pull request if you think it worthwhile merging your fork with the main branch.
