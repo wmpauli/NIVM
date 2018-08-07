@@ -16,6 +16,20 @@
 # chmod +x apt-key
 # mv apt-key /usr/local/sbin/
 
+function eval_cmd() {
+  "$@"
+  while [ $? -ne 0 ]; do
+    if [ "$i" -gt "$max" ]; then
+      break
+    fi
+    ((i=i+1))
+    echo "Sleeping for $sleep_duration seconds."
+    sleep $sleep_duration
+    echo "Retrying: $cmd"
+    "$@"
+  done
+}
+
 # counter of failed attempts
 i=0
 max=50
@@ -23,17 +37,7 @@ sleep_duration=5
 
 # add neurodebian repository
 cmd="wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | tee /etc/apt/sources.list.d/neurodebian.sources.list"
-eval $cmd
-while [ $? -ne 0 ]; do
-  if [ "$i" -gt "$max" ]; then
-    break
-  fi
-  ((i=i+1))
-  echo "Sleeping for $sleep_duration seconds."
-  sleep $sleep_duration
-  echo "Retrying: $cmd"
-  eval $cmd
-done
+eval_cmd
 
 # add certificate keys
 cmd="apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9"
