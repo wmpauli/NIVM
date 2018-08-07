@@ -30,3 +30,8 @@ sudo apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsle
 
 # remove obsolete packages
 sudo apt-get -y autoremove
+
+# configure FSL
+cd /tmp/
+wget https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
+sudo mv fsl_configure /etc/profile.d/
