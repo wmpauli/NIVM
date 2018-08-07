@@ -1,22 +1,17 @@
 # NIVM
 
-This repository provides the Neuroimaging extension for the Data Science Virtual Machine ([DSVM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/)), a customized VM image on Microsoft’s Azure ([wikipedia](https://en.wikipedia.org/wiki/Microsoft_Azure)) for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See documentation below for details, including on how to try the extension for free.
+This repository provides the Neuroimaging extension for the Data Science Virtual Machine ([DSVM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/)), a customized VM image on Microsoft’s Azure ([wikipedia](https://en.wikipedia.org/wiki/Microsoft_Azure)) for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. The central aim of this project is to make the transition to the cloud as simple as possible. See documentation below for details, including how to try the extension for free.
 
-Press this button to deploy this VM to Microsoft Azure: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-
-
-The aim of this extension is to target the following issues that may keep scientists from moving to the cloud:
-- Overhead of learning to use the cloud and determining whether it is worth the cost can be prohibitive.
-- Existing solutions require users to use a command-line interface (CLI), which is daunting for many neuroscientists.
-- Difficulty of determining the pricing model.
+Once you are ready to try it out, press this button to deploy this VM to Microsoft Azure: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 
 ## Incentives for moving to the cloud
 
-Currently, many researchers are running their analyses on desktop computers or even their laptops. In some cases, neuroimaging laboratories have acquired an on-premises computing and storage cluster with about 50TB of storage and 30 computing cores. In rare circumstances do laboratories take advantage of shared computing resources provided by the host institute (e.g. university) for its entire scientific community. 
+Currently, many researchers are running their analyses on desktop computers or even their laptops. In some cases, neuroimaging laboratories have acquired an expensive on-premises computing and storage cluster with something like 50TB of storage and 30 computing cores. In rare circumstances do laboratories take advantage of shared computing resources provided by the host institute (e.g. university) for its entire scientific community. 
 
-Moving to the cloud may have several benefits and satisify several needs:
+Using the cloud allows scientists to quickly resize their virtual machine, from only sporting a dual-core CPU to several GPUs ([DLVM](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/deep-learning-dsvm-overview)).  It is even possible to deploy a farm of VMs for rapid speed-up. Similarly, storage capacity can be flexibly increased and decreased on demand, not requiring researchers to buy a large amount of expensive redundant storage to safeguard against running out of space.
 
+Consider how neuroimaging analyses would benefit from running on the cloud:
 
 ### Performance and Storage space
 
@@ -28,10 +23,8 @@ Moving to the cloud may have several benefits and satisify several needs:
 
 - Cloud provides on-demand scalable access to resources for storing and operating on data, can accommodate bursts of activity (around deadlines). 
 - Neuroimaging jobs are highly parallelizable. For example, each participants' data can be processed independently. Parameter and model selection can also be performed in parallel.
-- Many NI packages support GPUs, but GPUs aren’t required in every step of the analysis process. Ability to switch between DSVM and DLVM would be beneficial.
-- Advanced data analysis techniques have led to impressive improvements of analysis results but are also computationally intensive. They often also require the storage of intermediate results, which can take a lot of storage space for a limited amount of time.
-
-Using the cloud allows you to quickly resize your virtual machine, from only sporting a dual-core CPU to several GPUs.  It is even possible to deploy a farm of VMs for rapid speed-up.
+- Many NI packages support GPUs, but GPUs aren’t required in every step of the analysis process. Ability to switch between cheaper and slower CPU VMs (DSVM) and more expensive and much faster GPU VMs (DLVM) would be beneficial.
+- Advanced data analysis techniques have led to impressive improvements of analysis results, but are also computationally intensive. They often also require the storage of intermediate results, which can take a lot of storage space for a limited amount of time.
 
 
 ### Recent developments that favor cloud computing
@@ -65,7 +58,7 @@ It may be benefitial to do briefly browse the [help] pages for Microsoft Azure (
 
 ## Workflow
 
-The very first step is to provision and deploy a Data Science Virtual Machine (DSVM) with this extension (see above).
+The very first step is to provision and deploy a Data Science Virtual Machine (DSVM) with this extension (click button above).
  
 At the very core, using this extension requires the following steps:
 1. Look up the IP address of your virtual machine after booting it up.
