@@ -33,7 +33,7 @@ function eval_cmd() {
 }
 
 i=0 # counter of failed attempts
-max=50 # total number of retries
+max=720 # total number of retries
 sleep_duration=5 # how many seconds to wait in between retries
 
 # add neurodebian repository
