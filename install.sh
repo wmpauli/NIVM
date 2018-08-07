@@ -19,6 +19,7 @@
 # counter of failed attempts
 i=0
 max=50
+sleep_duration=5
 
 # add neurodebian repository
 cmd="wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | tee /etc/apt/sources.list.d/neurodebian.sources.list"
@@ -27,51 +28,61 @@ while [ $? -ne 0 ]; do
     break
   fi
   ((i=i+1))
-  sleep 5
+  echo "Sleeping for " $sleep_duration
+  sleep $sleep_duration
+  echo "retrying: $cmd"
   $cmd
 done
 
 # add certificate keys
-apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9
+cmd="apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9"
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
   fi
   ((i=i+1))
-  sleep 5
+  echo "Sleeping for " $sleep_duration
+  sleep $sleep_duration
+  echo "retrying: $cmd"
   $cmd
 done
 
 # update package cache
-apt-get update
+cmd="apt-get update"
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
   fi
   ((i=i+1))
-  sleep 5
+  echo "Sleeping for " $sleep_duration
+  sleep $sleep_duration
+  echo "retrying: $cmd"
   $cmd
 done
 
 # install packages
-apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap 
+cmd="apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap"
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
   fi
   ((i=i+1))
-  sleep 5
+  echo "Sleeping for " $sleep_duration
+  sleep $sleep_duration
+  echo "retrying: $cmd"
   $cmd
 done
 
 # remove obsolete packages
-apt-get -y autoremove
+cmd="apt-get -y autoremove"
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
   fi
   ((i=i+1))
-  sleep 5
+  echo "Sleeping for " $sleep_duration
+  sleep $sleep_duration
+  echo "retrying: $cmd"
   $cmd
 done
 
