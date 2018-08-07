@@ -42,7 +42,7 @@ Consider how neuroimaging analyses would benefit from running on the cloud:
 
 Operating System: [Ubuntu](http://releases.ubuntu.com/16.04/) Linux Data Science Virtual Machine, associated with Neurodebian.org for package management. (An extension for Windows 10 may also be created, if there is demand for it.)
  
-This DSVM extension for neuroimaging strongly relies on packages available through the [NeuroDebian.ORG](http://neuro.debian.net/pkglists/toc_pkgs_for_field_mri.html#toc-pkgs-for-field-mri) software repository. Specifically, this extension contains the following software: afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap
+This DSVM extension for neuroimaging strongly relies on packages available through the [NeuroDebian.ORG](http://neuro.debian.net/pkglists/toc_pkgs_for_field_mri.html#toc-pkgs-for-field-mri) software repository. Specifically, this extension contains the following software: afni, connectome-workbench, connectomeviewer, fsl-core, fsleyes, fsl-harvard-oxford-atlases, itksnap.
 
 The extension also comes w/ **Docker support**, making it easy to [install fmriprep](https://fmriprep.readthedocs.io/en/latest/installation.html). 
 
