@@ -20,8 +20,7 @@ Consider how neuroimaging analyses would benefit from running on the cloud:
 
 
 ### Scalability
-
-- Cloud provides on-demand scalable access to resources for storing and operating on data, can accommodate bursts of activity (around deadlines). 
+ 
 - Neuroimaging jobs are highly parallelizable. For example, each participants' data can be processed independently. Parameter and model selection can also be performed in parallel.
 - Many NI packages support GPUs, but GPUs aren’t required in every step of the analysis process. Ability to switch between cheaper and slower CPU VMs (DSVM) and more expensive and much faster GPU VMs (DLVM) would be beneficial.
 - Advanced data analysis techniques have led to impressive improvements of analysis results, but are also computationally intensive. They often also require the storage of intermediate results, which can take a lot of storage space for a limited amount of time.
