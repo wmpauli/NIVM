@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script does a couple of things:
+# 1. adding software repositories relevant for neuroimaging analysis
+# 2. installing the software
+
 # overload apt-get so that it waits if some other process is installing packages
 cd /tmp/
 wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-get
