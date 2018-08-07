@@ -1,3 +1,11 @@
+#!/bin/bash
+
+# overload apt-get so that it waits if some other process is installing packages
+cd /tmp/
+wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-get
+chmod +x apt-get
+sudo mv apt-get /usr/local/sbin/
+
 # add neurodebian repository
 wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
 
