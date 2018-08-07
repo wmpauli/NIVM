@@ -38,7 +38,7 @@ The aim of this extension is to target the following issues that may keep scient
 - Difficulty of determining the pricing model.
 
 
-# Overview of extention
+# Overview of extension
 
 Operating System: Ubuntu Data Science Virtual Machine, associated with Neurodebian.org for package management. (An extension for Windows 10 may also be created, if there is demand for it.)
  
@@ -56,7 +56,7 @@ It may be benefitial to do briefly browse the [help] pages for Microsoft Azure (
 
 ## Workflow
 
-The very first step is to provision and deploy a Data Science Virtual Machine (DSVM) with this extension: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FDataScienceVM%2Fmaster%2FExtensions%2FNIVM%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+The very first step is to provision and deploy a Data Science Virtual Machine (DSVM) with this extension: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
  
 At the very core, using this extension requires the following steps:
 1. Look up the IP address of your virtual machine after booting it up.
