@@ -77,6 +77,10 @@ At the very core, using this extension requires the following steps:
 - NITRC - AWS: https://aws.amazon.com/marketplace/pp/B00DLI6VAQ?qid=1532479591110
 - Stanford Center for Reproducible Neuroscience: https://openneuro.org/
 
+# Further Reading:
+
+- https://www.frontiersin.org/articles/10.3389/fninf.2017.00063/full
+
 # Contribute
 
 Please feel free to fork this repository, if you want to have other/additional software installed. Any augmentation of the documentation for this extension is of course also more than welcome. Please create a pull request if you think it worthwhile merging your fork with the main branch.
