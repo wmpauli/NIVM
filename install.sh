@@ -23,7 +23,7 @@ sleep_duration=5
 
 # add neurodebian repository
 cmd="wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | tee /etc/apt/sources.list.d/neurodebian.sources.list"
-$cmd
+eval $cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -32,12 +32,12 @@ while [ $? -ne 0 ]; do
   echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
   echo "Retrying: $cmd"
-  $cmd
+  eval $cmd
 done
 
 # add certificate keys
 cmd="apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9"
-$cmd
+eval $cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -46,12 +46,12 @@ while [ $? -ne 0 ]; do
   echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
   echo "Retrying: $cmd"
-  $cmd
+  eval $cmd
 done
 
 # update package cache
 cmd="apt-get update"
-$cmd
+eval $cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -60,12 +60,12 @@ while [ $? -ne 0 ]; do
   echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
   echo "Retrying: $cmd"
-  $cmd
+  eval $cmd
 done
 
 # install packages
 cmd="apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap"
-$cmd
+eval $cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -74,12 +74,12 @@ while [ $? -ne 0 ]; do
   echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
   echo "Retrying: $cmd"
-  $cmd
+  eval $cmd
 done
 
 # remove obsolete packages
 cmd="apt-get -y autoremove"
-$cmd
+eval $cmd
 while [ $? -ne 0 ]; do
   if [ "$i" -gt "$max" ]; then
     break
@@ -88,7 +88,7 @@ while [ $? -ne 0 ]; do
   echo "Sleeping for $sleep_duration seconds."
   sleep $sleep_duration
   echo "Retrying: $cmd"
-  $cmd
+  eval $cmd
 done
 
 # configure FSL
