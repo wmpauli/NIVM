@@ -75,6 +75,8 @@ At the very core, using this extension requires the following steps:
 
 # Support
 
+See [troubleshooting](./troubleshooting.md) for some commonly encountered issues. 
+
 Please feel free to email any of the contributors for help.
 
 # Contribute
