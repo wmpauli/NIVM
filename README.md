@@ -74,7 +74,7 @@ At the very core, using this extension requires the following steps:
 
 # Existing Cloud solutions 
 
-- NITRC - AWS: https://aws.amazon.com/marketplace/pp/B00DLI6VAQ?qid=1532479591110&sr=0-2&ref_=srh_res_product_title
+- NITRC - AWS: https://aws.amazon.com/marketplace/pp/B00DLI6VAQ?qid=1532479591110
 - Stanford Center for Reproducible Neuroscience: https://openneuro.org/. A free and open platform for analyzing and sharing neuroimaging data. The service is free as long as researchers agree to the data becoming public domain 6 months after uploading. This is not an option for data sets that are to remain private, or if the researchers believes that she will need longer before her data should be published.
 
 # Contribute
