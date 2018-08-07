@@ -5,10 +5,16 @@
 # 2. installing the software
 
 # overload apt-get so that it waits if some other process is installing packages
-# cd /tmp/
-# wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-get
-# chmod +x apt-get
-# sudo mv apt-get /usr/local/sbin/
+cd /tmp/
+wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-get
+chmod +x apt-get
+mv apt-get /usr/local/sbin/
+
+# overload apt-key so that it waits if some other process is installing packages
+cd /tmp/
+wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-key
+chmod +x apt-key
+mv apt-key /usr/local/sbin/
 
 # add neurodebian repository
 wget -O- http://neuro.debian.net/lists/xenial.us-nh.full | tee /etc/apt/sources.list.d/neurodebian.sources.list
