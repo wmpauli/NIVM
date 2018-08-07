@@ -33,5 +33,5 @@ sudo mv fsl_configure.sh /etc/profile.d/
 # ensure that these settings also work in non-login shells
 echo "source /etc/profile.d/fsl_configure.sh" | sudo tee --append /etc/bash.bashrc
 
-# install servers for remote access
+# install server for remote access
 sudo apt-get install -y x2goserver
