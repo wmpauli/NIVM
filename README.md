@@ -1,6 +1,6 @@
 # NIVM
 
-This repository provides the Neuroimaging extension for The Data Science Virtual Machine (DSVM), a customized VM image on Microsoft’s Azure for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See below documentation for details, including on how to try the extension for free. 
+This repository provides the Neuroimaging extension for the Data Science Virtual Machine (DSVM), a customized VM image on Microsoft’s Azure for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See below documentation for details, including on how to try the extension for free. 
 
 ## Incentives for moving to the cloud
 
