@@ -35,3 +35,7 @@ sudo apt-get -y autoremove
 cd /tmp/
 wget https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
 sudo mv fsl_configure.sh /etc/profile.d/
+
+# install servers for remote access
+sudo apt-get install -y xrdp
+
