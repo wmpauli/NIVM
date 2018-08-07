@@ -35,7 +35,9 @@ sudo apt-get -y autoremove
 cd /tmp/
 wget https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
 sudo mv fsl_configure.sh /etc/profile.d/
-source /etc/profile.d/fsl_configure.sh
+
+# ensure that these settings also work in non-login shells
+echo "source /etc/profile.d/fsl_configure.sh" | sudo tee --append /etc/bash.bashrc
 
 # install servers for remote access
 sudo apt-get install -y xrdp
