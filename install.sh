@@ -25,7 +25,7 @@ function eval_cmd() {
     ((i=i+1))
     echo "Sleeping for $sleep_duration seconds."
     sleep $sleep_duration
-    echo "Retrying: "$@"
+    echo "Retrying: $@"
     "$@"
   done
 }
