@@ -28,9 +28,9 @@ Consider how neuroimaging analyses would benefit from running on the cloud:
 
 ### Recent developments that favor cloud computing
 
-- Since the advent of data-sharing initiatives, many data sets are online and can be shared by scientists. (Microsoft could offer to mirror the most essential of these data sets, so that their storage wouldn't have to be paid for.)
+- Since the advent of data-sharing initiatives, many data sets are online and can be shared by scientists. Microsoft is currently considering to mirror the most essential of these data sets, so that their storage wouldn't have to be paid for.
 - Increases of MRI scanner magnetic field strengths and improvements to data acquisition protocols have enabled higher-resolution data sets, requiring larger amounts of storage, and more time/cycles to process.
-- Modern analysis approaches require permutation testing, to establish empirically what the likelihood of the found results is, given that there is no true effect in the data. Permutation testing is computationally intensive, as the same analyses must be run 100s or 1000s of times on simulated (hypothetical) data.
+- Many current analysis approaches require permutation testing, to establish empirically what the likelihood of the found results is, given that there is no true effect in the data. Permutation testing is computationally intensive, as the same analyses must be run 100s or 1000s of times on simulated (hypothetical) data.
 
 
 ### Reproducibility
