@@ -148,7 +148,7 @@
                 "publisher": "[variables('imagePublisher')]"
             },            
             "tags": {
-                "Application": "DataScience"
+                "Application": "Neuroimaging"
             },
             "dependsOn": [
                 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
