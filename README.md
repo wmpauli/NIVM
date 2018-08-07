@@ -62,7 +62,7 @@ The very first step is to provision and deploy a Data Science Virtual Machine (D
 At the very core, using this extension requires the following steps:
 1. Look up the IP address of your virtual machine after booting it up.
 2. Upload your data using e.g. rsync, scp. It is recommended to store the data in `/data`. Note that it is easy to add additional hard-drives to your VM.
-3. Use the [x2go](https://wiki.x2go.org) client to connect to your virtual machine. (Ensure to set "session type" to GNOME, under "session preferences")
+3. Use the [x2go](https://wiki.x2go.org) client to connect to your virtual machine. Make sure to read the [documentation](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/linux-dsvm-intro#installing-and-configuring-x2go-client) for specific settings you need for this to work. 
 
 # Existing Cloud solutions 
 
