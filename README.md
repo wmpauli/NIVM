@@ -1,16 +1,12 @@
 # NIVM
 
-Neuroimaging extension for The Data Science Virtual Machine (DSVM), a customized VM image on Microsoft’s Azure. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See below documentation for details, including on how to try the extension for free. 
-
-## Background
-
-Neuroimaging (NI), in particular anatomical and functional magnetic resonance imaging (fMRI), is a prominent non-invasive neuroscience method. 
-
-## Current Practice 
-
-Most commonly researchers are currently running their analyses on desktop computers or even their laptops. In some cases, neuroimaging laboratories have acquired an on-premises computing and storage cluster with about 50TB of storage and 30 computing cores. In rare circumstances do laboratories take advantage of shared computing resources provided by the host institute (e.g. university) for its entire scientific community.
+This repository provides the Neuroimaging extension for The Data Science Virtual Machine (DSVM), a customized VM image on Microsoft’s Azure for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See below documentation for details, including on how to try the extension for free. 
 
 ## Incentives for moving to the cloud
+
+Currently, many researchers are running their analyses on desktop computers or even their laptops. In some cases, neuroimaging laboratories have acquired an on-premises computing and storage cluster with about 50TB of storage and 30 computing cores. In rare circumstances do laboratories take advantage of shared computing resources provided by the host institute (e.g. university) for its entire scientific community. 
+
+Moving to the cloud may have several benefits and satisify several needs:
 
 ### Performance and Storage space
 
@@ -33,8 +29,10 @@ Most commonly researchers are currently running their analyses on desktop comput
 
 - VMs can be captured, and images of the VM can be downloaded. This will benefit efforts of increasing the reproducibility of published scientific findings. VM machine images will contain all the data, and analysis script need to reproduce the published results. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4936733/)
 
+
 ## Current Roadblocks for moving to cloud
 
+The aim of this extension is to target the following issues that may keep scientists from moving to the cloud:
 - Overhead of learning to use the cloud and determining whether it is worth the cost can be prohibitive.
 - Existing solutions require users to use a command-line interface (CLI), which is daunting for many neuroscientists.
 - Difficulty of determining the pricing model.
@@ -42,11 +40,11 @@ Most commonly researchers are currently running their analyses on desktop comput
 
 # Overview of extention
 
-Ubuntu Data Science Virtual Machine, associated with Neurodebian.org for package management.
+Operating System: Ubuntu Data Science Virtual Machine, associated with Neurodebian.org for package management. (An extension for Windows 10 may also be created, if there is demand for it.)
  
 This DSVM extension for neuroimaging strongly relies on packages available through the NeuroDebian.ORG software repository. Specifically, this extension contains all software listed on this [page](http://neuro.debian.net/pkglists/toc_pkgs_for_field_mri.html#toc-pkgs-for-field-mri). 
 
-The extension also comes w/ Docker support, making it easy to install [fmriprep](https://github.com/poldracklab/fmriprep). 
+The extension also comes w/ Docker support, making it easy to [install fmriprep](https://fmriprep.readthedocs.io/en/latest/installation.html). 
 
 
 # Getting started: 
