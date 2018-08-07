@@ -1,8 +1,15 @@
 # NIVM
 
-This repository provides the Neuroimaging extension for the Data Science Virtual Machine (DSVM), a customized VM image on Microsoft’s Azure for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See below documentation for details, including on how to try the extension for free. 
+This repository provides the Neuroimaging extension for the Data Science Virtual Machine (DSVM), a customized VM image on Microsoft’s Azure for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. See documentation below for details, including on how to try the extension for free.
 
 Press this button to deploy this VM to Microsoft Azure: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+
+
+The aim of this extension is to target the following issues that may keep scientists from moving to the cloud:
+- Overhead of learning to use the cloud and determining whether it is worth the cost can be prohibitive.
+- Existing solutions require users to use a command-line interface (CLI), which is daunting for many neuroscientists.
+- Difficulty of determining the pricing model.
+
 
 ## Incentives for moving to the cloud
 
@@ -10,10 +17,12 @@ Currently, many researchers are running their analyses on desktop computers or e
 
 Moving to the cloud may have several benefits and satisify several needs:
 
+
 ### Performance and Storage space
 
 - MRI analyses require execution of complicated pipelines that are both time-consuming and computationally intensive, computing jobs typically run for hours and days. Requiring researchers to keep their laptops or workstations running.
 - Each neuroimaging project requires about 2TB of data, forcing labs to purchase large amounts of redundant storage, as data must be stored securely for many years, per request of federal (NIH, NSF) and many private funding agencies.
+
 
 ### Scalability
 
@@ -24,23 +33,17 @@ Moving to the cloud may have several benefits and satisify several needs:
 
 Using the cloud allows you to quickly resize your virtual machine, from only sporting a dual-core CPU to several GPUs.  It is even possible to deploy a farm of VMs for rapid speed-up.
 
+
 ### Recent developments that favor cloud computing
 
 - Since the advent of data-sharing initiatives, many data sets are online and can be shared by scientists. (Microsoft could offer to mirror the most essential of these data sets, so that their storage wouldn't have to be paid for.)
 - Increases of MRI scanner magnetic field strengths and improvements to data acquisition protocols have enabled higher-resolution data sets, requiring larger amounts of storage, and more time/cycles to process.
 - Modern analysis approaches require permutation testing, to establish empirically what the likelihood of the found results is, given that there is no true effect in the data. Permutation testing is computationally intensive, as the same analyses must be run 100s or 1000s of times on simulated (hypothetical) data.
 
+
 ### Reproducibility
 
 - VMs can be captured, and images of the VM can be downloaded. This will benefit efforts of increasing the reproducibility of published scientific findings. VM machine images will contain all the data, and analysis script need to reproduce the published results. (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4936733/)
-
-
-## Current Roadblocks for moving to cloud
-
-The aim of this extension is to target the following issues that may keep scientists from moving to the cloud:
-- Overhead of learning to use the cloud and determining whether it is worth the cost can be prohibitive.
-- Existing solutions require users to use a command-line interface (CLI), which is daunting for many neuroscientists.
-- Difficulty of determining the pricing model.
 
 
 # Overview of extension
@@ -49,9 +52,10 @@ Operating System: Ubuntu Data Science Virtual Machine, associated with Neurodebi
  
 This DSVM extension for neuroimaging strongly relies on packages available through the NeuroDebian.ORG software repository. Specifically, this extension contains all software listed on this [page](http://neuro.debian.net/pkglists/toc_pkgs_for_field_mri.html#toc-pkgs-for-field-mri). 
 
-The extension also comes w/ Docker support, making it easy to [install fmriprep](https://fmriprep.readthedocs.io/en/latest/installation.html). 
+The extension also comes w/ **Docker support**, making it easy to [install fmriprep](https://fmriprep.readthedocs.io/en/latest/installation.html). 
 
 **Note:** Matlab and SPM are currently not pre-installed with this extension.  Please let us know of a good way of doing this without having a matlab license.
+
 
 # Getting started: 
 
