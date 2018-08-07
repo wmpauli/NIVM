@@ -25,7 +25,7 @@ function eval_cmd() {
     ((i=i+1))
     echo "Sleeping for $sleep_duration seconds."
     sleep $sleep_duration
-    echo "Retrying: $cmd"
+    echo "Retrying: "$@"
     "$@"
   done
 }
@@ -36,64 +36,24 @@ max=50
 sleep_duration=5
 
 # add neurodebian repository
-cmd="wget -O /etc/apt/sources.dlist.d/neurodebian.sources.list http://neuro.debian.net/lists/xenial.us-nh.full"
+cmd="wget -O /etc/apt/sources.list.d/neurodebian.sources.list http://neuro.debian.net/lists/xenial.us-nh.full"
 eval_cmd $cmd
 
 # add certificate keys
 cmd="apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9"
-eval $cmd
-while [ $? -ne 0 ]; do
-  if [ "$i" -gt "$max" ]; then
-    break
-  fi
-  ((i=i+1))
-  echo "Sleeping for $sleep_duration seconds."
-  sleep $sleep_duration
-  echo "Retrying: $cmd"
-  eval $cmd
-done
+eval_cmd $cmd
 
 # update package cache
 cmd="apt-get update"
-eval $cmd
-while [ $? -ne 0 ]; do
-  if [ "$i" -gt "$max" ]; then
-    break
-  fi
-  ((i=i+1))
-  echo "Sleeping for $sleep_duration seconds."
-  sleep $sleep_duration
-  echo "Retrying: $cmd"
-  eval $cmd
-done
+eval_cmd $cmd
 
 # install packages
 cmd="apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap"
-eval $cmd
-while [ $? -ne 0 ]; do
-  if [ "$i" -gt "$max" ]; then
-    break
-  fi
-  ((i=i+1))
-  echo "Sleeping for $sleep_duration seconds."
-  sleep $sleep_duration
-  echo "Retrying: $cmd"
-  eval $cmd
-done
+eval_cmd $cmd
 
 # remove obsolete packages
 cmd="apt-get -y autoremove"
-eval $cmd
-while [ $? -ne 0 ]; do
-  if [ "$i" -gt "$max" ]; then
-    break
-  fi
-  ((i=i+1))
-  echo "Sleeping for $sleep_duration seconds."
-  sleep $sleep_duration
-  echo "Retrying: $cmd"
-  eval $cmd
-done
+eval_cmd $cmd
 
 # configure FSL
 cd /tmp/
