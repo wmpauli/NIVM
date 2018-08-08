@@ -41,6 +41,7 @@ cmd="apt-get update"
 eval_cmd $cmd
 
 # update all packages
+ACCEPT_EULA=Y
 cmd="apt-get -y dist-upgrade"
 eval_cmd $cmd
 
