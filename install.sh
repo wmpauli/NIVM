@@ -16,7 +16,7 @@
 # chmod +x apt-key
 # mv apt-key /usr/local/sbin/
 
-# unfortunately things get a little ugly if the system is installing updates or key servers are down, while we are trying to add repos or install packages. We therefore wrap important commands in this function, which tries a command repeatedly, until successful or a maximum total number of attempts has been reached.
+# unfortunately things get a little ugly if the OS is installing updates, or key servers are down, while we are trying to add repos or install packages. We therefore wrap important commands in this function, which tries a command repeatedly, until successful or a maximum total number of attempts has been reached.
 function eval_cmd() {
   "$@"
   while [ $? -ne 0 ]; do
@@ -33,8 +33,8 @@ function eval_cmd() {
 }
 
 i=0 # counter of failed attempts
-max=720 # total number of retries
-sleep_duration=5 # how many seconds to wait in between retries
+max=240 # total number of retries
+sleep_duration=15 # how many seconds to wait in between retries
 
 # add neurodebian repository
 cmd="wget -O /etc/apt/sources.list.d/neurodebian.sources.list http://neuro.debian.net/lists/xenial.us-nh.full"
@@ -57,9 +57,7 @@ cmd="apt-get -y autoremove"
 eval_cmd $cmd
 
 # configure FSL
-cd /tmp/
-wget https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
-mv fsl_configure.sh /etc/profile.d/
+wget -O /etc/profile.d/fsl_configure.sh https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
 
 # ensure that these settings also work in non-login shells
 echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
