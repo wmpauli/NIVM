@@ -64,3 +64,14 @@ wget -O /etc/profile.d/fsl_configure.sh https://raw.githubusercontent.com/wmpaul
 
 # ensure that these settings also work in non-login shells
 echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
+
+# last and worst, now we need to update the OpenGL version for fsleyes.
+mkdir /data/mesa
+cd /data/mesa
+apt-get install -y aptitude
+aptitude -y build-dep mesa
+aptitude -y install scons llvm-dev
+apt-get -y source mesa
+cd mesa-18.0.5
+scons libgl-xlib
+echo "LD_LIBRARY_PATH=`pwd`/build/linux-x86_64-debug/gallium/targets/libgl-xlib/:${LD_LIBRARY_PATH}" | tee --append /etc/bash.bashrc
