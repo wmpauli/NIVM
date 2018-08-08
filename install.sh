@@ -21,7 +21,7 @@ function eval_cmd() {
 }
 
 DEBIAN_FRONTEND=noninteractive # install in non-interactive mode
-ACCEPT_EULA=Y # accept microsoft eula (mssql-tools)
+export ACCEPT_EULA=Y # accept microsoft eula (mssql-tools)
 i=0 # counter of failed attempts
 max=240 # total number of retries
 sleep_duration=15 # how many seconds to wait in between retries
