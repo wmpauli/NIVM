@@ -49,21 +49,21 @@ cmd="apt-get update"
 eval_cmd $cmd
 
 # install packages
-# cmd="apt-get install -y afni connectome-workbench connectomeviewer itksnap"
-# eval_cmd $cmd
+cmd="apt-get install -y afni connectome-workbench connectomeviewer itksnap"
+eval_cmd $cmd
 
 # remove obsolete packages
-# cmd="apt-get -y autoremove"
-# eval_cmd $cmd
-
-# configure FSL
-# wget -O /etc/profile.d/fsl_configure.sh https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
-
-# ensure that these settings also work in non-login shells
-# echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
+cmd="apt-get -y autoremove"
+eval_cmd $cmd
 
 # manually install fsl, so we can put it the larger data partition (which can be resized)
 mkdir /data/tmp
 wget -O /data/tmp/fslinstaller.py https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py
 sed -i 's/mkstemp()/mkstemp(dir\=\"\/data\/tmp\")/' /data/tmp/fslinstaller.py
-/usr/bin/python2.7 /data/tmp/fslinstaller.py -E -d /data/fsl
+/usr/bin/python2.7 /data/tmp/fslinstaller.py -d /data/fsl
+
+# configure FSL
+wget -O /etc/profile.d/fsl_configure.sh https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
+
+# ensure that these settings also work in non-login shells
+echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
