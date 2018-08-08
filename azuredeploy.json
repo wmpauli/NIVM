@@ -60,7 +60,7 @@
         "virtualNetworkName": "[parameters('vmName')]",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-        "fileUris": "https://raw.githubusercontent.com/wmpauli/NIVM/fsl_installer/install.sh",
+        "fileUris": "https://raw.githubusercontent.com/wmpauli/NIVM/master/install.sh",
         "commandToExecute": "bash install.sh"
     },
     "resources": [
