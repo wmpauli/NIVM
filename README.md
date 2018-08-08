@@ -2,8 +2,7 @@
 
 This repository provides the Neuroimaging extension for the Data Science Virtual Machine ([DSVM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/)), a customized VM image on Microsoft’s Azure ([wikipedia](https://en.wikipedia.org/wiki/Microsoft_Azure)) for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. The central aim of this project is to make the transition to the cloud as simple as possible. See documentation below for details, including how to try the extension for free.
 
-Once you are ready to try it out, press this button to deploy this VM to Microsoft Azure (and wait ~10 minutes until all the packages are installed): <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-
+Once you are ready to try it out, press this button to deploy this VM to Microsoft Azure (and wait ~10 minutes until all the packages are installed): <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Ffsl_installer%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 ## Incentives for moving to the cloud
 
