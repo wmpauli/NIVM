@@ -20,6 +20,8 @@ function eval_cmd() {
   done
 }
 
+DEBIAN_FRONTEND=noninteractive # install in non-interactive mode
+ACCEPT_EULA=Y # accept microsoft eula (mssql-tools)
 i=0 # counter of failed attempts
 max=240 # total number of retries
 sleep_duration=15 # how many seconds to wait in between retries
@@ -43,7 +45,6 @@ cmd="apt-get update"
 eval_cmd $cmd
 
 # update all packages
-ACCEPT_EULA=Y
 cmd="apt-get -y dist-upgrade"
 eval_cmd $cmd
 
