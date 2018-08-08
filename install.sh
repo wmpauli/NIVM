@@ -4,18 +4,6 @@
 # 1. adding software repositories relevant for neuroimaging analysis
 # 2. installing the software
 
-# # overload apt-get so that it waits if some other process is installing packages
-# cd /tmp/
-# wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-get
-# chmod +x apt-get
-# mv apt-get /usr/local/sbin/
-
-# # overload apt-key so that it waits if some other process is installing packages
-# cd /tmp/
-# wget https://raw.githubusercontent.com/wmpauli/NIVM/master/apt-key
-# chmod +x apt-key
-# mv apt-key /usr/local/sbin/
-
 # unfortunately things get a little ugly if the OS is installing updates, or key servers are down, while we are trying to add repos or install packages. We therefore wrap important commands in this function, which tries a command repeatedly, until successful or a maximum total number of attempts has been reached.
 function eval_cmd() {
   "$@"
@@ -36,6 +24,10 @@ i=0 # counter of failed attempts
 max=240 # total number of retries
 sleep_duration=15 # how many seconds to wait in between retries
 
+# update the keys for the tensorflow repository
+cmd="curl https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.release.pub.gpg | apt-key add -"
+eval_cmd $cmd
+
 # add neurodebian repository
 cmd="wget -O /etc/apt/sources.list.d/neurodebian.sources.list http://neuro.debian.net/lists/xenial.us-nh.full"
 eval_cmd $cmd
@@ -46,6 +38,10 @@ eval_cmd $cmd
 
 # update package cache
 cmd="apt-get update"
+eval_cmd $cmd
+
+# update all packages
+cmd="apt-get -y dist-upgrade"
 eval_cmd $cmd
 
 # install packages
