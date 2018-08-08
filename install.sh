@@ -62,4 +62,8 @@ eval_cmd $cmd
 # ensure that these settings also work in non-login shells
 # echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
 
-# wget -O /tmp/fslinstaller.py https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py
+# manually install fsl, so we can put it the larger data partition (which can be resized)
+mkdir /data/tmp
+wget -O /data/tmp/fslinstaller.py https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py
+sed -i 's/mkstemp()/mkstemp(dir\=\"\/data\/tmp\")/' /data/tmp/fslinstaller.py
+/usr/bin/python2.7 /data/tmp/fslinstaller.py -E -d /data/fsl
