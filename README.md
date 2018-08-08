@@ -53,7 +53,10 @@ The extension also comes w/ **Docker support**, making it easy to [install fmrip
 
 Go to Microsoft Azure [portal](http://portal.azure.com), to create a free account. This will let you try this extension for free. 
 
-It may be benefitial to do briefly browse the [help] pages for Microsoft Azure (https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+It may be benefitial to briefly browse the help pages for Microsoft Azure (https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+The [documentation](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/) for DSVMs is also great.
+
 
 ## Workflow
 
