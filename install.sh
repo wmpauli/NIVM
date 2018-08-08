@@ -25,7 +25,9 @@ max=240 # total number of retries
 sleep_duration=15 # how many seconds to wait in between retries
 
 # update the keys for the tensorflow repository
-cmd="curl https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.release.pub.gpg | apt-key add -"
+cmd="wget -O /tmp/tensorflow-serving.release.pub.gpg https://storage.googleapis.com/tensorflow-serving-apt/tensorflow-serving.release.pub.gpg"
+eval_cmd $cmd
+cmd="apt-key add /tmp/tensorflow-serving.release.pub.gpg"
 eval_cmd $cmd
 
 # add neurodebian repository
