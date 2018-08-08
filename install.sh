@@ -49,15 +49,17 @@ cmd="apt-get update"
 eval_cmd $cmd
 
 # install packages
-cmd="apt-get install -y afni connectome-workbench connectomeviewer fsl-core fsleyes fsl-harvard-oxford-atlases itksnap"
-eval_cmd $cmd
+# cmd="apt-get install -y afni connectome-workbench connectomeviewer itksnap"
+# eval_cmd $cmd
 
 # remove obsolete packages
-cmd="apt-get -y autoremove"
-eval_cmd $cmd
+# cmd="apt-get -y autoremove"
+# eval_cmd $cmd
 
 # configure FSL
-wget -O /etc/profile.d/fsl_configure.sh https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
+# wget -O /etc/profile.d/fsl_configure.sh https://raw.githubusercontent.com/wmpauli/NIVM/master/fsl_configure.sh
 
 # ensure that these settings also work in non-login shells
-echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
+# echo "source /etc/profile.d/fsl_configure.sh" | tee --append /etc/bash.bashrc
+
+# wget -O /tmp/fslinstaller.py https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py
