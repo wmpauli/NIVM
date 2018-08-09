@@ -2,7 +2,9 @@
 
 This repository provides the Neuroimaging extension for the Data Science Virtual Machine ([DSVM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/)), a customized VM image on Microsoft’s Azure ([wikipedia](https://en.wikipedia.org/wiki/Microsoft_Azure)) for Neuroimaging research. The central goal of this extension is to enable neuroimaging scientists to have easy access to scalable computing and storage resources for their research projects. The central aim of this project is to make the transition to the cloud as simple as possible. See documentation below for details, including how to try the extension for free.
 
-Once you are ready to try it out, press this button to deploy this VM to Microsoft Azure (and wait ~10 minutes until all the packages are installed): <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+Once you are ready to try it out, press this button to deploy this VM to Microsoft Azure (and wait ~30 minutes until all the packages and data are downloaded and installed): <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fwmpauli%2FNIVM%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+
+**Note:** You will be asked to create a `resource group`, which allows you to organize your VMs for different projects. As `location`, it is recommended to use `East US 2` for now. 
 
 ## Incentives for moving to the cloud
 
@@ -41,7 +43,9 @@ Consider how neuroimaging analyses would benefit from running on the cloud:
 
 Operating System: [Ubuntu](http://releases.ubuntu.com/16.04/) Linux Data Science Virtual Machine, associated with Neurodebian.org for package management. (An extension for Windows 10 may also be created, if there is demand for it.)
  
-This DSVM extension for neuroimaging strongly relies on packages available through the [NeuroDebian.ORG](http://neuro.debian.net/pkglists/toc_pkgs_for_field_mri.html#toc-pkgs-for-field-mri) software repository. Specifically, this extension contains the following software: afni, connectome-workbench, connectomeviewer, fsl-core, fsleyes, fsl-harvard-oxford-atlases, itksnap.
+This DSVM extension for neuroimaging strongly relies on packages available through the [NeuroDebian.ORG](http://neuro.debian.net/pkglists/toc_pkgs_for_field_mri.html#toc-pkgs-for-field-mri) software repository. Specifically, this extension contains the following software: afni, connectome-workbench, connectomeviewer, itksnap.
+
+FSL, however, is installed using the `fsl_installer.py`. Installation path is `/data/fsl`.
 
 The extension also comes w/ **Docker support**, making it easy to [install fmriprep](https://fmriprep.readthedocs.io/en/latest/installation.html). 
 
