@@ -23,17 +23,6 @@
         "vmSize": {
             "type": "string",
             "defaultValue": "Standard_D4s_v3",
-            "allowedValues": [
-                "Standard_D2s_v3",
-                "Standard_D4s_v3",
-                "Standard_D6s_v3",
-                "Standard_D16s_v3",
-                "Standard_D32s_v3",
-                "Standard D64s v3",
-                "Standard_NC6",
-                "Standard_NC12",
-                "Standard_NC24",
-            ],
             "metadata": {
                 "description": "Size for the Virtual Machine."
             }
@@ -41,38 +30,55 @@
     },
     "variables": {
         "location": "[resourceGroup().location]",
-        "imagePublisher": "microsoft-ads",
+        "imagePublisher": "microsoft-dsvm",
         "imageOffer": "linux-data-science-vm-ubuntu",
-        "OSDiskName": "osdiskforlinuxsimple",
-        "DataDiskName": "datadiskforlinuxsimple",
         "sku": "linuxdsvmubuntu",
         "nicName": "[parameters('vmName')]",
         "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'lindsvm')]",
         "publicIPAddressType": "Dynamic",
         "publicIPAddressName": "[parameters('vmName')]",
-        "vmStorageAccountContainerName": "vhds",
         "vmName": "[parameters('vmName')]",
         "vmSize": "[parameters('vmSize')]",
         "virtualNetworkName": "[parameters('vmName')]",
+        "nsgName": "[concat(parameters('vmName'),'-nsg')]",
+        "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('nsgName'))]",        
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
         "fileUris": "https://raw.githubusercontent.com/wmpauli/NIVM/master/install.sh",
         "commandToExecute": "bash install.sh"
     },
     "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
-            "apiVersion": "2015-05-01-preview",
+		{
+            "apiVersion": "2018-02-01",
+            "type": "Microsoft.Network/networkSecurityGroups",
             "location": "[variables('location')]",
+            "name": "[variables('nsgName')]",
             "properties": {
-                "accountType": "[variables('storageAccountType')]"
+                "securityRules": [
+                    {
+                        "name": "Allow-SSH-Jupyterhub",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "22",
+                                "8000"
+                            ],
+                            "destinationPortRange": ""
+                        }
+                    }
+                ]
             }
-        },
+        },        
         {
             "apiVersion": "2015-05-01-preview",
             "type": "Microsoft.Network/publicIPAddresses",
@@ -90,6 +96,9 @@
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[variables('virtualNetworkName')]",
             "location": "[variables('location')]",
+		     "dependsOn": [
+                "[concat('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+              ],            
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
@@ -113,6 +122,7 @@
             "location": "[variables('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+               "[concat('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]",	                
                 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
             ],
             "properties": {
@@ -129,24 +139,21 @@
                             }
                         }
                     }
-                ]
+                ],
+                "networkSecurityGroup": {
+                    "id": "[variables('nsgId')]"
+                }
             }
         },
         {
             "apiVersion": "2015-06-15",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[variables('vmName')]",
-            "location": "[variables('location')]",
-            "plan": {
-                "name": "[variables('sku')]",
-                "product": "[variables('imageOffer')]",
-                "publisher": "[variables('imagePublisher')]"
-            },            
+            "location": "[variables('location')]",        
             "tags": {
                 "Application": "Neuroimaging"
             },
             "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
                 "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
             ],
             "properties": {
@@ -166,20 +173,17 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'), variables('vmName'),  '.vhd')]"
+                        "managedDisk": {
+                            "storageAccountType": "[variables('storageAccountType')]"
                         },
-                        "caching": "ReadWrite",
                         "createOption": "FromImage"
                     },
                     "dataDisks": [
                         {
-                            "name": "data-0",
-                            "vhd": {
-                                "uri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('DataDiskName'), variables('vmName'), '.vhd')]"
+                            "managedDisk": {
+                                "storageAccountType": "[variables('storageAccountType')]"
                             },
-                            "createOption": "fromImage",
+                            "createOption": "FromImage",
                             "lun": 0
                         }
                     ]
@@ -193,8 +197,7 @@
                 },
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
-                        "enabled": "true",
-                        "storageUri": "[concat('http://',variables('storageAccountName'),'.blob.core.windows.net')]"
+                        "enabled": false
                     }
                 }
             },
@@ -202,7 +205,7 @@
          {
           "type": "extensions",
           "name": "Neuroimaging",
-          "apiVersion": "2015-06-15",
+          "apiVersion": "2017-03-30",
           "location": "[variables('location')]",
           "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
